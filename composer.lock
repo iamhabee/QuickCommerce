@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "41c1d0483f96a451853b39b9072afcac",
+    "content-hash": "217ce9e373287ad98263ae6c57c4ed3f",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -484,6 +484,56 @@
                 "validator"
             ],
             "time": "2020-06-16T20:11:17+00:00"
+        },
+        {
+            "name": "enyo/dropzone",
+            "version": "v5.7.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/enyo/dropzone.git",
+                "reference": "78424e9c97b569e698cc9175e9bc424168219162"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/enyo/dropzone/zipball/78424e9c97b569e698cc9175e9bc424168219162",
+                "reference": "78424e9c97b569e698cc9175e9bc424168219162",
+                "shasum": ""
+            },
+            "type": "library",
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Matias Meno",
+                    "email": "m@tias.me",
+                    "homepage": "http://www.matiasmeno.com"
+                }
+            ],
+            "description": "Handles drag and drop of files for you.",
+            "homepage": "http://www.dropzonejs.com",
+            "keywords": [
+                "drag and drop",
+                "dragndrop",
+                "file upload",
+                "upload"
+            ],
+            "funding": [
+                {
+                    "url": "https://github.com/[user1",
+                    "type": "github"
+                },
+                {
+                    "url": "https://github.com/enyo] # Replace with up to 4 GitHub Sponsors-enabled usernames e.g.",
+                    "type": "github"
+                },
+                {
+                    "url": "https://github.com/user2",
+                    "type": "github"
+                }
+            ],
+            "time": "2020-07-23T12:58:26+00:00"
         },
         {
             "name": "fideloper/proxy",
@@ -1007,6 +1057,49 @@
             "time": "2020-05-20T16:45:56+00:00"
         },
         {
+            "name": "laravel-frontend-presets/paper",
+            "version": "v1.0.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/laravel-frontend-presets/paper-dashboard.git",
+                "reference": "85e0248c7702458de38ab2326254499bc56add13"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/laravel-frontend-presets/paper-dashboard/zipball/85e0248c7702458de38ab2326254499bc56add13",
+                "reference": "85e0248c7702458de38ab2326254499bc56add13",
+                "shasum": ""
+            },
+            "require": {
+                "laravel/framework": "^7.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "LaravelFrontendPresets\\PaperPreset\\PaperPresetServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "LaravelFrontendPresets\\PaperPreset\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "Laravel 5.x Front-end preset for paper dashboard",
+            "homepage": "https://github.com/creativetimofficial/paper-dashboard-laravel",
+            "keywords": [
+                "laravel",
+                "paper",
+                "preset"
+            ],
+            "time": "2020-03-17T12:25:19+00:00"
+        },
+        {
             "name": "laravel/framework",
             "version": "v7.19.1",
             "source": {
@@ -1299,6 +1392,61 @@
                 "psysh"
             ],
             "time": "2020-07-07T15:10:00+00:00"
+        },
+        {
+            "name": "laravel/ui",
+            "version": "v2.2.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/laravel/ui.git",
+                "reference": "fb1404f04ece6eee128e3fb750d3a1e064238b33"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/laravel/ui/zipball/fb1404f04ece6eee128e3fb750d3a1e064238b33",
+                "reference": "fb1404f04ece6eee128e3fb750d3a1e064238b33",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/console": "^7.0|^8.0",
+                "illuminate/filesystem": "^7.0|^8.0",
+                "illuminate/support": "^7.0|^8.0",
+                "php": "^7.2.5"
+            },
+            "require-dev": {
+                "mockery/mockery": "^1.0",
+                "phpunit/phpunit": "^8.0|^9.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Laravel\\Ui\\UiServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Laravel\\Ui\\": "src/",
+                    "Illuminate\\Foundation\\Auth\\": "auth-backend/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Taylor Otwell",
+                    "email": "taylor@laravel.com"
+                }
+            ],
+            "description": "Laravel UI utilities and presets.",
+            "keywords": [
+                "laravel",
+                "ui"
+            ],
+            "time": "2020-08-25T18:30:43+00:00"
         },
         {
             "name": "lcobucci/jwt",
@@ -6422,6 +6570,7 @@
             "keywords": [
                 "tokenizer"
             ],
+            "abandoned": true,
             "time": "2019-09-17T06:23:10+00:00"
         },
         {

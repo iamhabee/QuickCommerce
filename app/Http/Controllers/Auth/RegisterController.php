@@ -2,14 +2,15 @@
 
 namespace App\Http\Controllers\Auth;
 
-use App\Http\Controllers\Controller;
-use App\Providers\RouteServiceProvider;
 use App\User;
-use Illuminate\Foundation\Auth\RegistersUsers;
+use App\Seller;
+use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Str;
-use App\Traits\Utilities;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\Registeration;
 
 class RegisterController extends Controller
 {
@@ -25,14 +26,14 @@ class RegisterController extends Controller
     */
 
     use RegistersUsers;
-    use Utilities;
 
     /**
      * Where to redirect users after registration.
      *
      * @var string
      */
-    protected $redirectTo = RouteServiceProvider::HOME;
+    protected $redirectTo = '/home';
+
     /**
      * Create a new controller instance.
      *
@@ -52,9 +53,14 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'password' => ['required', 'string', 'min:8', 'confirmed'],
+            // 'first_name' => ['required', 'string', 'max:255'],
+            // 'last_name' => ['required', 'string', 'max:255'],
+            // 'store_name' => ['required', 'string'],
+            // 'bank_name' => ['required', 'string'],
+            // 'account_name' => ['required', 'string'],
+            // 'account_number' => ['required'],
+            // 'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            // 'password' => ['required', 'string', 'min:8', 'confirmed'],
         ]);
     }
 
@@ -66,16 +72,30 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        $cat_code = $this->userRole('SUPERADMIN');
-        $acct_id = Str::random(60);
-        return User::create([
-            'name' => $data['name'],
-            'email' => $data['email'],
-            'password' => Hash::make($data['password']),
-            'external_table_id' => 0,
-            'user_category' => ($cat_code),
-            'acct_id' => ($acct_id),
-            'school_id' => 0
-        ]);
+        $date = date("Y-m-d H:i:s");
+        $user = User::create([
+                'user_first_name' => $data['first_name'],
+                'user_last_name' => $data['last_name'],
+                'email' => $data['email'],
+                'user_created_at' => $date,
+                'user_token' => Str::random(6),
+                'user_code' => "QCU".Str::random(6),
+                'password' => Hash::make($data['password']),
+            ]);
+        if($user){
+            $seller = new Seller([
+            'seller_user_id'=> $user->id,
+            'seller_bank_name'=> $data['bank_name'],
+            'seller_account_number'=> $data['account_number'],
+            'seller_account_name' => $data['account_name'],
+            'seller_store_name' => $data['store_name'],
+            'seller_created_at' => $date,
+            ]);
+            $seller->save();
+            Mail::to($data['email'])
+            ->send(new Registeration());
+        }
+        
+        return $user;
     }
 }

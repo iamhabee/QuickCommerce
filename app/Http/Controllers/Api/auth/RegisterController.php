@@ -31,8 +31,8 @@ class RegisterController extends Controller
         }
         $date = date("Y-m-d H:i:s");
         $user = new User([
-        'user_first_name'=> $request->user_first_name,
-        'user_last_name'=> $request->user_last_name,
+        'user_first_name'=> $request->first_name,
+        'user_last_name'=> $request->last_name,
         'email' => $request->email,
         'password' => bcrypt($request->password),
         'user_created_at' => $date,
@@ -69,10 +69,10 @@ class RegisterController extends Controller
 
     public function createSeller($user, $date){
         $seller = new Seller([
-            'seller_bank_name'=> $user->seller_bank_name,
-            'seller_account_number'=> $user->seller_account_number,
-            'seller_account_name' => $user->seller_account_name,
-            'seller_store_name' => $user->seller_store_name,
+            'seller_bank_name'=> $user->bank_name,
+            'seller_account_number'=> $user->account_number,
+            'seller_account_name' => $user->account_name,
+            'seller_store_name' => $user->store_name,
             'seller_created_at' => $date,
             ]);
             if($seller->save()){
