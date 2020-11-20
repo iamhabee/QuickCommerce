@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\User;
 use App\Seller;
+use App\SellerFollower;
 use App\Traits\Validate;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Validator;
@@ -34,12 +35,18 @@ class RegisterController extends Controller
         'user_first_name'=> $request->first_name,
         'user_last_name'=> $request->last_name,
         'email' => $request->email,
+        'user_image_url'=>'default.png',
         'password' => bcrypt($request->password),
         'user_created_at' => $date,
         'user_token' => Str::random(6),
         'user_code' => "QCU".Str::random(6)
         ]);
             if($user->save()){
+                $follow = new SellerFollower([
+                    'buyer_id'=>$user->id,
+                    'seller_id'=>1,
+                ]);
+                $follow->save();
                 if($this->checkUser($request, $date)){
                     return response()->json([
                         'message' => 'User Registration Successful'

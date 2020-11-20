@@ -6,17 +6,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Product extends Model
 {
-    //
-    // protected $casts = [
-    //     'pictures' => 'array',
-    //     'colors' => 'array',
-    //     'size' => 'array',
-    //     'tags' => 'array'
-    // ];
     protected $fillable = [
         'product_name',
         'product_code',
-        'product_category_id',
         'product_seller_id',
         'product_description',
         'product_tag',
@@ -26,13 +18,22 @@ class Product extends Model
         'product_price',
         'product_discount_price',
         'product_category',
-        'product_size_category',
+        'product_size',
         'product_bulk_price',
         'product_brand_id',
         'product_deleted',
         'product_created_at',
+        'product_image'
         
     ];
+    public function Product_images()
+    {
+        return $this->hasOne('App\ProductImage');
+    }
+    public function orders()
+    {
+        return $this->hasOne('App\OrderItem');
+    }
 
 
 }

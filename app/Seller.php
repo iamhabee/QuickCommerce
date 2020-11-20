@@ -12,6 +12,6 @@ class Seller extends Model
      * @var array
      */
     protected $fillable = [
-        'seller_user_id','seller_bank_name','seller_account_number', 'seller_account_name', 'seller_store_name', 'seller_created_at'
+        'seller_user_id','seller_bank_name', 'seller_categories', 'seller_account_number', 'seller_account_name', 'seller_store_name', 'seller_created_at'
     ];
 }

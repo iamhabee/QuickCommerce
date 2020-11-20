@@ -42,7 +42,7 @@
                         </div>
                     </div>
                 </div> -->
-                <div class="col-lg-4 col-md-6">
+                <div class="col-lg-8 col-md-8">
                     <div class="card card-signup text-center">
                         <div class="card-header ">
                             <h4 class="card-title">{{ __('Register') }}</h4>
@@ -101,55 +101,71 @@
                                         </span>
                                     @endif
                                 </div>
-                                <div class="input-group{{ $errors->has('bank_name') ? ' has-danger' : '' }}">
+                                <div class="input-group{{ $errors->has('seller_bank_name') ? ' has-danger' : '' }}">
                                     <div class="input-group-prepend">
                                         <span class="input-group-text">
                                             <i class="nc-icon nc-single-02"></i>
                                         </span>
                                     </div>
-                                    <input name="bank_name" type="text" class="form-control" placeholder="Bank Name" value="{{ old('bank_name') }}" required autofocus>
-                                    @if ($errors->has('bank_name'))
+                                    <input name="seller_bank_name" type="text" class="form-control" placeholder="Bank Name" value="{{ old('seller_bank_name') }}" required autofocus>
+                                    @if ($errors->has('seller_bank_name'))
                                         <span class="invalid-feedback" style="display: block;" role="alert">
-                                            <strong>{{ $errors->first('bank_name') }}</strong>
+                                            <strong>{{ $errors->first('seller_bank_name') }}</strong>
                                         </span>
                                     @endif
                                 </div>
-                                <div class="input-group{{ $errors->has('account_number') ? ' has-danger' : '' }}">
+                                <div class="input-group{{ $errors->has('seller_account_number') ? ' has-danger' : '' }}">
                                     <div class="input-group-prepend">
                                         <span class="input-group-text">
                                             <i class="nc-icon nc-single-02"></i>
                                         </span>
                                     </div>
-                                    <input name="account_number" type="text" class="form-control" placeholder="Account Number" value="{{ old('account_number') }}" required autofocus>
-                                    @if ($errors->has('account_number'))
+                                    <input name="seller_account_number" type="text" class="form-control" placeholder="Account Number" value="{{ old('seller_account_number') }}" required autofocus>
+                                    @if ($errors->has('seller_account_number'))
                                         <span class="invalid-feedback" style="display: block;" role="alert">
-                                            <strong>{{ $errors->first('account_number') }}</strong>
+                                            <strong>{{ $errors->first('seller_account_number') }}</strong>
                                         </span>
                                     @endif
                                 </div>
-                                <div class="input-group{{ $errors->has('account_name') ? ' has-danger' : '' }}">
+                                <div class="input-group{{ $errors->has('seller_account_name') ? ' has-danger' : '' }}">
                                     <div class="input-group-prepend">
                                         <span class="input-group-text">
                                             <i class="nc-icon nc-single-02"></i>
                                         </span>
                                     </div>
-                                    <input name="account_name" type="text" class="form-control" placeholder="Account Name" value="{{ old('account_name') }}" required autofocus>
-                                    @if ($errors->has('account_name'))
+                                    <input name="seller_account_name" type="text" class="form-control" placeholder="Account Name" value="{{ old('seller_account_name') }}" required autofocus>
+                                    @if ($errors->has('seller_account_name'))
                                         <span class="invalid-feedback" style="display: block;" role="alert">
-                                            <strong>{{ $errors->first('account_name') }}</strong>
+                                            <strong>{{ $errors->first('seller_account_name') }}</strong>
                                         </span>
                                     @endif
                                 </div>
-                                <div class="input-group{{ $errors->has('store_name') ? ' has-danger' : '' }}">
+                                <div class="input-group{{ $errors->has('seller_store_name') ? ' has-danger' : '' }}">
                                     <div class="input-group-prepend">
                                         <span class="input-group-text">
                                             <i class="nc-icon nc-single-02"></i>
                                         </span>
                                     </div>
-                                    <input name="store_name" type="text" class="form-control" placeholder="Store Name" value="{{ old('store_name') }}" required autofocus>
-                                    @if ($errors->has('store_name'))
+                                    <input name="seller_store_name" type="text" class="form-control" placeholder="Store Name" value="{{ old('seller_store_name') }}" required autofocus>
+                                    @if ($errors->has('seller_store_name'))
                                         <span class="invalid-feedback" style="display: block;" role="alert">
-                                            <strong>{{ $errors->first('store_name') }}</strong>
+                                            <strong>{{ $errors->first('seller_store_name') }}</strong>
+                                        </span>
+                                    @endif
+                                </div>
+                                <div class="row input-group{{ $errors->has('seller_categories') ? ' has-danger' : '' }}">
+                                    <div class="col-10 row" id="cat_list">
+                                        <div class="tags col-5 m-2" id="cats">
+                                            <input class="form-control" name="seller_categories[]" id="input-seller_categories" type="text" placeholder="{{ __('e.g phone accessories...') }}" value="{{ old('seller_categories') }}" autofocus required="true" />
+                                            <button type="button" class="btn btn-sm btn-outline-danger remove_cat">X</button>
+                                        </div>
+                                    </div>
+                                    <div class="col-2">
+                                        <button type="button" class="btn btn-sm btn-outline-success" id="add_cat">add</button>
+                                    </div>
+                                    @if ($errors->has('seller_categories'))
+                                        <span class="invalid-feedback" style="display: block;" role="alert">
+                                            <strong>{{ $errors->first('seller_categories') }}</strong>
                                         </span>
                                     @endif
                                 </div>

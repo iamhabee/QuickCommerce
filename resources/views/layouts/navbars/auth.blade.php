@@ -12,7 +12,7 @@
     <div class="sidebar-wrapper">
         <ul class="nav">
             <li class="{{ $elementActive == 'dashboard' ? 'active' : '' }}">
-                <a href="{{ route('page.index', 'dashboard') }}">
+                <a href="{{ route('home') }}">
                     <i class="nc-icon nc-bank"></i>
                     <p>{{ __('Dashboard') }}</p>
                 </a>
@@ -45,7 +45,7 @@
             <li class="{{ $elementActive == 'profile' ? 'active' : '' }}">
                 <a href="{{ route('profile.edit') }}">
                     <!-- <span class="sidebar-mini-icon">{{ __('UP') }}</span> -->
-                    <i class="nc-icon nc-pin-3"></i>
+                    <i class="nc-icon nc-diamond"></i>
                     <p>{{ __('Profile') }}</p>
                     <!-- <span class="sidebar-normal">{{ __(' User Profile ') }}</span> -->
                 </a>
@@ -56,14 +56,14 @@
                     <p>{{ __('Products') }}</p>
                 </a>
             </li>
-            <li class="{{ $elementActive == 'map' ? 'active' : '' }}">
-                <a href="{{ route('page.index', 'map') }}">
+            <li class="{{ $elementActive == 'order' ? 'active' : '' }}">
+                <a href="{{ route('order.index') }}">
                     <i class="nc-icon nc-cart-simple"></i>
                     <p>{{ __('Order') }}</p>
                 </a>
             </li>
-            <li class="{{ $elementActive == 'notifications' ? 'active' : '' }}">
-                <a href="{{ route('page.index', 'notifications') }}">
+            <li class="{{ $elementActive == 'brand' ? 'active' : '' }}">
+                <a href="{{ route('brand.index') }}">
                     <i class="nc-icon nc-tag-content"></i>
                     <p>{{ __('Brands') }}</p>
                 </a>
@@ -74,36 +74,24 @@
                     <p>{{ __('Category') }}</p>
                 </a>
             </li>
-            <li class="{{ $elementActive == 'typography' ? 'active' : '' }}">
-                <a href="{{ route('page.index', 'typography') }}">
-                    <i class="nc-icon nc-palette"></i>
-                    <p>{{ __('Colour') }}</p>
-                </a>
-            </li>
-            <li class="{{ $elementActive == 'typography' ? 'active' : '' }}">
-                <a href="{{ route('page.index', 'typography') }}">
+            <li class="{{ $elementActive == 'blog' ? 'active' : '' }}">
+                <a href="{{ route('blog.index') }}">
                     <i class="nc-icon nc-badge"></i>
                     <p>{{ __('Blog') }}</p>
                 </a>
             </li>
-            <li class="{{ $elementActive == 'typography' ? 'active' : '' }}">
-                <a href="{{ route('page.index', 'typography') }}">
+            <li class="{{ $elementActive == 'transactions' ? 'active' : '' }}">
+                <a href="{{ route('transaction.index') }}">
                     <i class="nc-icon nc-paper"></i>
                     <p>{{ __('Transactions') }}</p>
                 </a>
             </li>
-            <li class="{{ $elementActive == 'typography' ? 'active' : '' }}">
-                <a href="{{ route('page.index', 'typography') }}">
+            <li class="{{ $elementActive == 'wishlist' ? 'active' : '' }}">
+                <a href="{{ route('wishlist.index') }}">
                     <i class="nc-icon nc-basket"></i>
                     <p>{{ __('Wishlist') }}</p>
                 </a>
             </li>
-            <!-- <li class="active-pro {{ $elementActive == 'upgrade' ? 'active' : '' }} bg-danger">
-                <a href="{{ route('page.index', 'upgrade') }}">
-                    <i class="nc-icon nc-spaceship text-white"></i>
-                    <p class="text-white">{{ __('Upgrade to PRO') }}</p>
-                </a>
-            </li> -->
         </ul>
     </div>
 </div>

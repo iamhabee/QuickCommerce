@@ -3,6 +3,7 @@
 namespace App\Traits;
 use Auth;
 use Illuminate\Support\Facades\Validator;
+use App\Seller;
 
 trait Validate {
     public function validator($rules, $request){

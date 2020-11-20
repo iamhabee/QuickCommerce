@@ -53,14 +53,15 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            // 'first_name' => ['required', 'string', 'max:255'],
-            // 'last_name' => ['required', 'string', 'max:255'],
-            // 'store_name' => ['required', 'string'],
-            // 'bank_name' => ['required', 'string'],
-            // 'account_name' => ['required', 'string'],
-            // 'account_number' => ['required'],
-            // 'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            // 'password' => ['required', 'string', 'min:8', 'confirmed'],
+            'first_name' => ['required', 'string', 'max:255'],
+            'last_name' => ['required', 'string', 'max:255'],
+            'seller_store_name' => ['required', 'string', 'unique:sellers'],
+            'seller_bank_name' => ['required', 'string'],
+            'seller_account_name' => ['required', 'string'],
+            'seller_account_number' => ['required'],
+            'seller_categories' => ['required'],
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'password' => ['required', 'string', 'min:8', 'confirmed'],
         ]);
     }
 
@@ -72,7 +73,9 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+        $categories = collect($data['seller_categories'])->implode(',');
         $date = date("Y-m-d H:i:s");
+        // $color = collect($categories)->implode(',');
         $user = User::create([
                 'user_first_name' => $data['first_name'],
                 'user_last_name' => $data['last_name'],
@@ -85,15 +88,15 @@ class RegisterController extends Controller
         if($user){
             $seller = new Seller([
             'seller_user_id'=> $user->id,
-            'seller_bank_name'=> $data['bank_name'],
-            'seller_account_number'=> $data['account_number'],
-            'seller_account_name' => $data['account_name'],
-            'seller_store_name' => $data['store_name'],
+            'seller_bank_name'=> $data['seller_bank_name'],
+            'seller_account_number'=> $data['seller_account_number'],
+            'seller_account_name' => $data['seller_account_name'],
+            'seller_store_name' => $data['seller_store_name'],
+            'seller_categories' => $categories,
             'seller_created_at' => $date,
             ]);
             $seller->save();
-            Mail::to($data['email'])
-            ->send(new Registeration());
+            // Mail::to($data['email'])->send(new Registeration());
         }
         
         return $user;
