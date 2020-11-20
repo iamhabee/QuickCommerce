@@ -72,8 +72,8 @@ class ProductController extends Controller
     {
         $product = DB::table('products')
         ->select('products.*')
-        ->whereRaw("DATEDIFF(now(), products.created_at) <= 5 AND DATEDIFF(now(), products.created_at) >= 0 AND product_deleted = 0")
-        ->get();
+        ->whereRaw("product_deleted = 0")
+        ->get()->random(10);
         // $product = Product::all();
         return response()->json( $product, 200);
     }
