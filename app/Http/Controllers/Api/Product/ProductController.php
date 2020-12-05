@@ -70,11 +70,11 @@ class ProductController extends Controller
 
     public function latest_product()
     {
-        $product = DB::table('products')
-        ->select('products.*')
-        ->whereRaw("product_deleted = 0")
-        ->get()->random(10);
-        // $product = Product::all();
+        // $product = DB::table('products')
+        // ->select('products.*')
+        // ->whereRaw("product_deleted = 0")
+        // ->get()->random(4);
+        $product = Product::inRandomOrder()->limit(5)->get();;
         return response()->json( $product, 200);
     }
 
